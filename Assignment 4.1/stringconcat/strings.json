@@ -1,0 +1,35 @@
+[
+  {
+    "result": "ali eve gel sonra çarşıya git",
+    "duration": 0.1827,
+    "strings": [
+      "ali eve gel",
+      "eve gel sonra çarşı",
+      "çarşıya git",
+      "eve gel sonra"
+    ],
+    "_id": {"$oid": "641c46af86340703022537b7"},
+    "_class": "com.yazlab.stringconcat.Strings"
+  },
+  {
+    "result": "merdivenden çıktı ve ali eve geldi kapıyı açtı ve eve girdi",
+    "duration": 0.9511,
+    "strings": [
+      "ali eve geldi kapıyı açtı",
+      "kapıyı açtı ve eve girdi",
+      "merdivenden çıktı ve ali eve geldi"
+    ],
+    "_id": {"$oid": "641cc4beeab91d616945a3e8"},
+    "_class": "com.yazlab.stringconcat.Strings"
+  },
+  {
+    "result": "abcefgh",
+    "duration": 0.6723,
+    "strings": [
+      "abcdefgh",
+      "abcefgh"
+    ],
+    "_id": {"$oid": "642069eabf2c3558bfebc6bf"},
+    "_class": "com.yazlab.stringconcat.Strings"
+  }
+]

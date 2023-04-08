@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>StringConcat</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+<h1>StringConcat</h1>
+
+<form id="word-form" action="/send" method="get" autocomplete="off">
+    <button type="button" id="add" onclick="addWord()">Add</button>
+    <button type="button" id="remove" onclick="removeWord()">Remove</button>
+    <button type="button" id="send" onclick="submitForm()">Send</button>
+    <button type="button" id="export" onclick="exportToJson()">Export</button>
+    <ul id="wordlist">
+        <li>
+            <label>
+                <input type="text" name="words[]" autocomplete="false">
+            </label>
+        </li>
+    </ul>
+</form>
+
+<script>
+    function addWord() {
+        const li = document.createElement('li');
+        const label = document.createElement('label');
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.name = 'words[]';
+        input.autocomplete = 'false';
+        label.appendChild(input);
+        li.appendChild(label);
+        document.getElementById('wordlist').appendChild(li);
+    }
+
+    function removeWord() {
+        const wordlist = document.getElementById('wordlist');
+        if (wordlist.childElementCount > 1) {
+            wordlist.removeChild(wordlist.lastChild);
+        }
+    }
+
+    function submitForm() {
+        const form = document.getElementById('word-form');
+        form.submit();
+    }
+    function exportToJson() {
+        fetch('/export', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+</script>
+
+</body>
+</html>

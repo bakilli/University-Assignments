@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Words Sent</title>
+</head>
+<body>
+<h1>Words Sent</h1>
+<ul id="wordslist">
+    <li th:each="word : ${words}" th:text="${word}"></li>
+</ul>
+<h1>Result</h1>
+<p>Concatenated words: <span id="result" th:text="${result}"></span></p>
+<h1>Time Took in ms</h1>
+<p>Time took: <span id="time" th:text="${duration}"></span></p>
+<button onclick="saveToMongoDB();changeText()" id="save" >save to MongoDb</button>
+<script>
+    function saveToMongoDB() {
+        const words = document.getElementById('wordslist').innerText;
+        // cast words to list
+        const wordsList = words.split("\n");
+        console.log(wordsList);
+        const result = document.getElementById('result').innerText;
+        const duration = document.getElementById('time').innerText;
+        const data = {
+            words: words,
+            result: result,
+            duration: duration
+        };
+        fetch('/save', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+    }
+    function changeText() {
+        document.getElementById("save").innerHTML = "Saved";
+    }
+</script>
+</body>
+</html>
