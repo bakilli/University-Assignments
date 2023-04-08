@@ -1,0 +1,12 @@
+<a href="/">Homepage</a>
+<h1>Search Results</h1>
+
+<ul>
+  {% for laptop in object_list %}
+    <li>
+    <p>{{laptop.rating}} &#11088  /   {{laptop.price}} TL
+    <br>
+    <p>&#128187<p><a href="/laptop/{{ laptop.id }}/">{{laptop.name}} ({{laptop.site}})</a>
+    </li>
+  {% endfor %}
+</ul>

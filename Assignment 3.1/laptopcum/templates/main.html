@@ -1,0 +1,9 @@
+<a href="/admin/">Admin Giriş</a>
+<br/>
+{% for laptop in laptops %}
+
+<a class="products" href="/laptop/{{ laptop.id }}/">{{laptop.name}}</a>
+
+<br/>
+
+{% endfor %}

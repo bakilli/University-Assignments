@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<a href="/">Homepage</a> / <a href="/laptop_list">Advanced Search</a>
+
+<form action="{% url 'search_results' %}" method="get">
+  <input name="q" list="laptops" type="text" placeholder="Search..." class="form-control">
+  <datalist id="laptops">
+       {% for laptop in laptops %}
+       <option value="{{ laptop.name }}"></option>
+       {% endfor %}
+  </datalist>
+</form>
+
+
+
+{% for laptop in laptops %}
+
+<p>{{laptop.rating}} &#11088  /   {{laptop.price}} TL
+<br>
+<p>&#128187<p><a href="/laptop/{{ laptop.id }}/">{{laptop.name}} ({{laptop.site}})</a>
+<br/>
+
+{% endfor %}
+
+<div>
+  {% block content %}
+  {% endblock content %}
+</div>

@@ -1,0 +1,16 @@
+<a href="/">Homepage</a>
+
+
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for laptop in filter.qs %}
+ 
+  <p>{{laptop.rating}} &#11088  /   {{laptop.price}} TL
+  <br>
+  <p>&#128187<p><a href="/laptop/{{ laptop.id }}/">{{laptop.name}} ({{laptop.site}})</a>
+  <hr>
+  {% endfor %}
+  </ul>

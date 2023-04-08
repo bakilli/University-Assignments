@@ -1,0 +1,55 @@
+<a href="/">Homepage</a>
+<h1>{{laptop.name}}</h1>
+<p>Brand: {{laptop.brand}}</p> 
+<p>Model: {{laptop.model}}</p>
+<p>Operating System: {{laptop.operating_system}}</p>
+<p>CPU: {{laptop.cpu}}</p>
+<p>GPU: {{laptop.gpu}}</p>
+<p>Ram: {{laptop.ram}} GB</p>
+<p>Disc Size: {{laptop.disc}} GB</p>
+<p>Screen Size: {{laptop.screen_size}}</p>
+<p>Puan: {{laptop.rating}}</p>
+<p>Fiyat: {{laptop.price}} TL</p>
+<a href="{{laptop.site_link}}">Site: {{laptop.site}}</a>
+{% comment %}
+{% endcomment %}
+
+<br>
+<br>
+{% if laptop.model != None %}
+{% if linkler.count > 1 %}
+<h4>Cheapest 3 price:</h4>
+<hr>
+{% for i in linkler %}
+<a href={{i.site_link}}>{{i.site}}<a>
+{% if i.site == 'teknosa' %}
+<a href={{i.site_link}}>
+<img src="https://www.yerlituket.com/images/brand/teknosa.png" width="40" height="40">
+<a/>
+{% endif %}
+{% if i.site == 'vatan' %}
+<a href={{i.site_link}}>
+<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4h40FGfeSeOEwAFR9ROExjqDJbrzQ-wNxMZ0NzykQqw&s" width="40" height="40">
+<a/>
+{% endif %}
+{% if i.site == 'amazon' %}
+<a href={{i.site_link}}>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Amazon_icon.svg/2500px-Amazon_icon.svg.png" width="40" height="40">
+<a/>
+{% endif %}
+{% if i.site == 'n11' %}
+<a href={{i.site_link}}>
+<img src="https://www.rel.com.tr/wp-content/uploads/2014/09/n11-logo.png" width="40" height="40">
+<a/>
+{% endif %}
+{% if i.site == 'laptopcum' %}
+<a href={{i.site_link}}>
+<img src="https://seeklogo.com/images/K/kocaeli-universitesi-logo-D51E83F419-seeklogo.com.png" width="40" height="40">
+<a/>
+{% endif %}
+<p>{{i.rating}}&#11088 / {{i.price}} TL
+<br><hr>
+{% endfor %}
+
+{% endif %}
+{% endif %}
