@@ -51,3 +51,9 @@ For web interface i used springboot and for database i used MongoDB everything e
 Create a mobile word game.                  
 The letter blocks fall from the top and the user should create words in turkish to destroy these blocks if a column fills player loses the game.            
 I created this game using kotlin and jetpack compose for the UI.
+
+### Assignment 4.3
+Graph based text summary program.
+A program that summarize input text and calculate its ROUGE score against the real summary.
+This program uses Both Word Embedding and BERT to calculate the score.
+Program has different weighs for different parts of the calculation.
